@@ -1,3 +1,8 @@
+<script setup>
+// image
+import profilePic from "@/assets/img/team-1.jpg";
+</script>
+
 <template>
   <header>
     <!--h1><a href="#" class="logo"><img alt="Vue logo" src="../../assets/logo.png" width="80"></a></h1>
@@ -22,7 +27,12 @@
           <span>One of three columns</span>
         </div>
       </div>
-      <MaterialAvatar image="/src/assets/img/team-1.jpg" alt="Avatar" size="xxl" />
+      <MaterialAvatar
+          size="xxl"
+          class="shadow-xl position-relative z-index-2"
+          :image="profilePic"
+          alt="Avatar"
+      />
     </vm-container>
 
 
@@ -34,6 +44,8 @@
 import { defineComponent } from 'vue';
 import { VmContainer } from 'vue3-material';
 import MaterialAvatar from "@/components/MaterialAvatar.vue";
+
+
 export default defineComponent({
   components: {
     MaterialAvatar,

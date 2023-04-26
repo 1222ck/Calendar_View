@@ -5,13 +5,13 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Nucleo Icons
-//import "./assets/css/nucleo-icons.css";
-//import "./assets/css/nucleo-svg.css";
+import "./assets/css/nucleo-icons.css";
+import "./assets/css/nucleo-svg.css";
 
-import Vue3Material from 'vue3-material';
+import materialKit from "./material-kit";
 
 //createApp(App).mount('#app')
 const app = createApp(App);
 app.use(router);
-app.use(Vue3Material);
+app.use(materialKit);
 app.mount('#app');
