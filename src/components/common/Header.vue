@@ -1,65 +1,52 @@
-<script setup>
-// image
-import profilePic from "@/assets/img/team-1.jpg";
-</script>
-
 <template>
   <header>
-    <!--h1><a href="#" class="logo"><img alt="Vue logo" src="../../assets/logo.png" width="80"></a></h1>
-    <div class="menuWrap">
-      <ul class="menu">
-        <li><a href="javascript:;">메뉴1</a></li>
-        <li><a href="javascript:;">메뉴2</a></li>
-        <li><a href="javascript:;">메뉴3</a></li>
-        <li><a href="javascript:;">메뉴4</a></li>
-      </ul>
-    </div-->
-
-    <vm-container>
-      <div class="row">
-        <div class="col-sm">
-          <span>One of three columns</span>
-        </div>
-        <div class="col-sm">
-          <span>One of three columns</span>
-        </div>
-        <div class="col-sm">
-          <span>One of three columns</span>
+    <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" >
+      <div class="container">
+        <a class="navbar-brand" href="javascript:;">Material Design</a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-header-2"
+            aria-controls="navbar-header-2"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-header-2">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="#"> Home </RouterLink></li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="#">About Us</RouterLink></li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="#">Contact Us</RouterLink></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li class="nav-item">
+              <a
+                  class="nav-link"
+                  href="https://twitter.com/CreativeTim">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                  class="nav-link mx-2"
+                  href="https://www.facebook.com/CreativeTim">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                  class="nav-link"
+                  href="https://www.instagram.com/CreativeTimOfficial">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <MaterialAvatar
-          size="xxl"
-          class="shadow-xl position-relative z-index-2"
-          :image="profilePic"
-          alt="Avatar"
-      />
-    </vm-container>
-
-
+    </nav>
   </header>
-
 </template>
-
-<script>
-import { defineComponent } from 'vue';
-import { VmContainer } from 'vue3-material';
-import MaterialAvatar from "@/components/MaterialAvatar.vue";
-
-
-export default defineComponent({
-  components: {
-    MaterialAvatar,
-    VmContainer,
-  }
-});
-</script>
-
-<style scoped>
-header{width:100%; text-align:center; position:relative; height:120px; border-bottom:1px solid #35495e}
-header h1{position:absolute; top:0; left:100px;}
-header ul.menu:after{display:block; clear:both; content:'';}
-header ul.menu{position:absolute; top:20px; right:50px;}
-header ul.menu li{float:left; padding:10px 20px; list-style:none;}
-
-a{text-decoration:none; color:#333;}
-</style>

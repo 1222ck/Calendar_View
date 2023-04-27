@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <!-- 추가된 헤더 컴포넌트 사용 -->
     <Header />
 
@@ -10,7 +9,6 @@
 
     <!-- 추가된 풋터 컴포넌트 사용 -->
     <Footer />
-  </div>
 </template>
 
 <script>
