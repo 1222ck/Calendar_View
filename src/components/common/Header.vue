@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" >
       <div class="container">
-        <a class="navbar-brand" href="javascript:;">Material Design</a>
+        <a class="navbar-brand" href="/">Material Design</a>
         <button
             class="navbar-toggler"
             type="button"
@@ -16,18 +16,19 @@
         <div class="collapse navbar-collapse" id="navbar-header-2">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <RouterLink class="nav-link" to="#"> Home </RouterLink></li>
+              <RouterLink class="nav-link" to="/"> Home </RouterLink></li>
             <li class="nav-item">
               <RouterLink class="nav-link" to="#">About Us</RouterLink></li>
             <li class="nav-item">
               <RouterLink class="nav-link" to="#">Contact Us</RouterLink></li>
           </ul>
           <ul class="nav navbar-nav">
-            <li class="nav-item">
+            <!--li class="nav-item">
               <a
                   class="nav-link"
                   href="https://twitter.com/CreativeTim">
-                <i class="fab fa-twitter"></i>
+                <i class="fa-fw fa-brands fa-twitter fa-2x"></i>
+                <font-awesome-icon icon="fa-brands fa-twitter" />
               </a>
             </li>
             <li class="nav-item">
@@ -36,12 +37,10 @@
                   href="https://www.facebook.com/CreativeTim">
                 <i class="fab fa-facebook"></i>
               </a>
-            </li>
+            </li-->
             <li class="nav-item">
-              <a
-                  class="nav-link"
-                  href="https://www.instagram.com/CreativeTimOfficial">
-                <i class="fab fa-instagram"></i>
+              <a class="nav-link" href="/Login">
+                로그인
               </a>
             </li>
           </ul>
