@@ -75,7 +75,7 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
                 <p class="mt-4 text-sm text-center">
                   Don't have an account?
                   <a
-                      href="#"
+                      href="/Join"
                       class="text-success text-gradient font-weight-bold"
                   >Sign up</a
                   >
