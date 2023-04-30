@@ -39,7 +39,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/member/login">
-                로그인
+                Login
               </a>
             </li>
           </ul>
