@@ -18,17 +18,16 @@
             <li class="nav-item">
               <RouterLink class="nav-link" to="/"> Home </RouterLink></li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="#">About Us</RouterLink></li>
+              <RouterLink class="nav-link" to="/about">About Us</RouterLink></li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="#">Contact Us</RouterLink></li>
+              <RouterLink class="nav-link" to="/contact">Contact Us</RouterLink></li>
           </ul>
           <ul class="nav navbar-nav">
-            <!--li class="nav-item">
+            <li class="nav-item">
               <a
                   class="nav-link"
                   href="https://twitter.com/CreativeTim">
-                <i class="fa-fw fa-brands fa-twitter fa-2x"></i>
-                <font-awesome-icon icon="fa-brands fa-twitter" />
+                <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="nav-item">
@@ -37,9 +36,9 @@
                   href="https://www.facebook.com/CreativeTim">
                 <i class="fab fa-facebook"></i>
               </a>
-            </li-->
+            </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Login">
+              <a class="nav-link" href="/member/login">
                 로그인
               </a>
             </li>

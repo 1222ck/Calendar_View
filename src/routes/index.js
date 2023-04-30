@@ -9,13 +9,13 @@ const routes = [
         component: () => import('@/components/Index.vue'),
     },
     {
-        path: '/Login',
+        path: '/member/login',
         name: 'Login',
         // 1.
         component: () => import('@/components/member/Login.vue'),
     },
     {
-        path: '/Join',
+        path: '/member/join',
         name: 'Join',
         // 1.
         component: () => import('@/components/member/Join.vue'),
