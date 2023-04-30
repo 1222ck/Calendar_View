@@ -18,9 +18,9 @@
             <li class="nav-item">
               <RouterLink class="nav-link" to="/"> Home </RouterLink></li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/about">About Us</RouterLink></li>
+              <RouterLink class="nav-link" to="#">About Us</RouterLink></li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/contact">Contact Us</RouterLink></li>
+              <RouterLink class="nav-link" to="#">Contact Us</RouterLink></li>
           </ul>
           <ul class="nav navbar-nav">
             <li class="nav-item">

@@ -6,7 +6,7 @@ const routes = [
         path: '/',
         name: 'Index',
         // 1.
-        component: () => import('@/components/Index.vue'),
+        component: () => import('@/components/calendar/Calendar.vue'),
     },
     {
         path: '/member/login',
