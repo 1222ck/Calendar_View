@@ -11,6 +11,23 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
       <div class="row">
         <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
           <h3 class="text-center">Login</h3>
+          <div class="row mt-3">
+            <div class="col-2 text-center ms-auto">
+              <a class="btn btn-link px-3" href="javascript:;">
+                <i class="fa fa-facebook text-lg"></i>
+              </a>
+            </div>
+            <div class="col-2 text-center px-1">
+              <a class="btn btn-link px-3" href="javascript:;">
+                <i class="fa fa-github text-lg"></i>
+              </a>
+            </div>
+            <div class="col-2 text-center me-auto">
+              <a class="btn btn-link px-3" href="javascript:;">
+                <i class="fa fa-google text-lg"></i>
+              </a>
+            </div>
+          </div>
           <form role="form" id="login-form" method="post" autocomplete="off">
             <div class="card-body">
               <div class="row">
