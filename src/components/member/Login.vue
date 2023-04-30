@@ -11,59 +11,34 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
       <div class="row">
         <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
           <h3 class="text-center">Login</h3>
-          <form role="form" id="contact-form" method="post" autocomplete="off">
+          <form role="form" id="login-form" method="post" autocomplete="off">
             <div class="card-body">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <MaterialInput
                       class="input-group-dynamic mb-4"
-                      :label="{ text: 'First Name', class: 'form-label' }"
+                      :label="{ text: 'EMAIL', class: 'form-label' }"
                       type="text"
                   />
                 </div>
-                <div class="col-md-6 ps-2">
+                <div class="col-md-12">
                   <MaterialInput
-                      class="input-group-dynamic"
-                      :label="{ text: 'Last Name', class: 'form-label' }"
+                      class="input-group-dynamic mb-4"
+                      :label="{ text: 'PASSWORD', class: 'form-label' }"
                       type="text"
                   />
                 </div>
               </div>
-              <div class="mb-4">
-                <MaterialInput
-                    class="input-group-dynamic"
-                    :label="{ text: 'Email Address', class: 'form-label' }"
-                    type="email"
-                />
-              </div>
-              <MaterialTextArea
-                  class="input-group-static mb-4"
-                  id="message"
-                  :rows="4"
-              >Your message</MaterialTextArea
-              >
             </div>
             <div class="row">
               <div class="col-md-12">
-                <MaterialSwitch
-                    class="mb-4 d-flex align-items-center"
-                    id="flexSwitchCheckDefault"
-                    checked
-                    labelClass="ms-3 mb-0"
-                >
-                  I agree to the
-                  <a href="javascript:;" class="text-dark"
-                  ><u>Terms and Conditions</u></a
-                  >.
-                </MaterialSwitch>
-
                 <div class="col-md-12">
                   <MaterialButton
                       type="submit"
                       variant="gradient"
                       color="dark"
                       fullWidth
-                  >Send Message</MaterialButton
+                  >Login</MaterialButton
                   >
                 </div>
               </div>
