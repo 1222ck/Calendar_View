@@ -2,7 +2,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" >
       <div class="container">
-        <a class="navbar-brand" href="/">Material Design</a>
+        <a class="navbar-brand" href="/">Calendar Project</a>
         <button
             class="navbar-toggler"
             type="button"
