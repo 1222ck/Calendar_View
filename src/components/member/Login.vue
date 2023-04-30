@@ -9,58 +9,80 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
   <section class="py-9">
     <div class="container py-4">
       <div class="row">
-        <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
-          <h3 class="text-center">Login</h3>
-          <div class="row mt-3">
-            <div class="col-2 text-center ms-auto">
-              <a class="btn btn-link px-3" href="javascript:;">
-                <i class="fa fa-facebook text-lg"></i>
-              </a>
-            </div>
-            <div class="col-2 text-center px-1">
-              <a class="btn btn-link px-3" href="javascript:;">
-                <i class="fa fa-github text-lg"></i>
-              </a>
-            </div>
-            <div class="col-2 text-center me-auto">
-              <a class="btn btn-link px-3" href="javascript:;">
-                <i class="fa fa-google text-lg"></i>
-              </a>
-            </div>
-          </div>
-          <form role="form" id="login-form" method="post" autocomplete="off">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <MaterialInput
-                      class="input-group-dynamic mb-4"
-                      :label="{ text: 'EMAIL', class: 'form-label' }"
-                      type="text"
-                  />
-                </div>
-                <div class="col-md-12">
-                  <MaterialInput
-                      class="input-group-dynamic mb-4"
-                      :label="{ text: 'PASSWORD', class: 'form-label' }"
-                      type="text"
-                  />
+        <div class="col-lg-4 col-md-8 col-12 mx-auto">
+          <div class="card z-index-0 fadeIn3 fadeInBottom">
+            <div
+                class="card-header p-0 position-relative mt-n4 mx-3 z-index-2"
+            >
+              <div
+                  class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1"
+              >
+                <h4
+                    class="text-white font-weight-bolder text-center mt-2 mb-0"
+                >
+                  Sign in
+                </h4>
+                <div class="row mt-3">
+                  <div class="col-2 text-center ms-auto">
+                    <a class="btn btn-link px-3" href="javascript:;">
+                      <i class="fa fa-facebook text-white text-lg"></i>
+                    </a>
+                  </div>
+                  <div class="col-2 text-center px-1">
+                    <a class="btn btn-link px-3" href="javascript:;">
+                      <i class="fa fa-github text-white text-lg"></i>
+                    </a>
+                  </div>
+                  <div class="col-2 text-center me-auto">
+                    <a class="btn btn-link px-3" href="javascript:;">
+                      <i class="fa fa-google text-white text-lg"></i>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="col-md-12">
+            <div class="card-body">
+              <form role="form" class="text-start">
+                <MaterialInput
+                    id="email"
+                    class="input-group-outline my-3"
+                    :label="{ text: 'Email', class: 'form-label' }"
+                    type="email"
+                />
+                <MaterialInput
+                    id="password"
+                    class="input-group-outline mb-3"
+                    :label="{ text: 'Password', class: 'form-label' }"
+                    type="password"
+                />
+                <MaterialSwitch
+                    class="d-flex align-items-center mb-3"
+                    id="rememberMe"
+                    labelClass="mb-0 ms-3"
+                    checked
+                >Remember me</MaterialSwitch
+                >
+
+                <div class="text-center">
                   <MaterialButton
-                      type="submit"
+                      class="my-4 mb-2"
                       variant="gradient"
-                      color="dark"
+                      color="success"
                       fullWidth
-                  >Login</MaterialButton
+                  >Sign in</MaterialButton
                   >
                 </div>
-              </div>
+                <p class="mt-4 text-sm text-center">
+                  Don't have an account?
+                  <a
+                      href="#"
+                      class="text-success text-gradient font-weight-bold"
+                  >Sign up</a
+                  >
+                </p>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
