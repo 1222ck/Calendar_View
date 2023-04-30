@@ -30,22 +30,22 @@
         >
           {{ day }}
 
-          <div
-            v-if="maxThreeTodaysEvent(day, events).length"
-            v-for="evt in maxThreeTodaysEvent(day, events)"
-            class="hidden md:block"
-          >
-            <div
-              class="w-full px-2 py-1 flex space-x-1 items-center whitespace-nowrap overflow-hidden hover:border hover:border-gray-200 cursor-pointer rounded-sm"
-              @click="togglePopover($event, evt)"
+          <div v-if="maxThreeTodaysEvent(day, events).length">
+            <div v-for="(index, evt) in maxThreeTodaysEvent(day, events)" :key="index"
+              class="hidden md:block"
             >
-              <div class="w-1/12">
-                <div class="h-2 w-2 rounded-full bg-purple-600"></div>
-              </div>
-              <div class="w-11/12">
-                <h5 class="text-xs tracking-tight text-clip overflow-hidden">
-                  {{ evt.title }}
-                </h5>
+              <div
+                class="w-full px-2 py-1 flex space-x-1 items-center whitespace-nowrap overflow-hidden hover:border hover:border-gray-200 cursor-pointer rounded-sm"
+                @click="togglePopover($event, evt)"
+              >
+                <div class="w-1/12">
+                  <div class="h-2 w-2 rounded-full bg-purple-600"></div>
+                </div>
+                <div class="w-11/12">
+                  <h5 class="text-xs tracking-tight text-clip overflow-hidden">
+                    {{ evt.title }}
+                  </h5>
+                </div>
               </div>
             </div>
           </div>
