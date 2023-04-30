@@ -31,6 +31,12 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
                   </MaterialButton>
                 </div>
                 <MaterialInput
+                    id="name"
+                    class="input-group-outline mb-3"
+                    :label="{ text: 'Name', class: 'form-label' }"
+                    type="text"
+                />
+                <MaterialInput
                     id="password"
                     class="input-group-outline mb-3"
                     :label="{ text: 'Password', class: 'form-label' }"
