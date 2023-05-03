@@ -187,7 +187,7 @@ const props = defineProps({
     required: true,
   },
 });
-
+console.log(props);
 // Store initialization and subscription
 const calendarStore = useCalendarStore();
 calendarStore.$subscribe((mutation, state) => {
@@ -212,6 +212,8 @@ const modalShow = ref(false);
 const modalDay = ref(0);
 const popoverRef = ref(null);
 const modalEvents = ref([]);
+
+console.log(firstDayOfCurrentMonth);
 
 // popover composable
 const { popoverShow, todaysEvent, togglePopover } = usePopover(popoverRef);
@@ -296,6 +298,8 @@ const isEventToday = (day, startdate) => {
  * @return array Array of the filtered day's event(s)
  */
 const maxThreeTodaysEvent = (day, events) => {
+    console.log(day);
+    console.log(events)
   if (!events.length) return [];
 
   let threeTodaysEventArr = [];
