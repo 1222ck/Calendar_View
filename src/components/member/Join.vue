@@ -77,9 +77,9 @@ export default {
     async submitForm() {
       // API 요청시 전달할 userData 객체
       const userData = {
-        NAME: this.username,
-        PASSWORD: this.password,
-        E_MAIL: this.email,
+        name: this.username,
+        password: this.password,
+        email: this.email,
       };
       const { data } = await registerUser(userData);
 
