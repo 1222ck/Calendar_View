@@ -178,17 +178,6 @@ import Modal from "@/components/calendar/EventsModal.vue";
 import { useCalendarStore } from "../../stores/calendar";
 import { usePopover } from "../../composables/popover";
 
-/**************************************
- * PROPS
- * ************************************
- */
-const props = defineProps({
-  events: {
-    type: Object,
-    required: true,
-  },
-});
-
 const events = ref([
     {
         id: 1,
@@ -323,7 +312,16 @@ const events = ref([
         location: "At the base",
     },
 ]);
-
+/**************************************
+ * PROPS
+ * ************************************
+ */
+const props = defineProps({
+    events: {
+        type: Object,
+        required: true,
+    },
+});
 // Store initialization and subscription
 const calendarStore = useCalendarStore();
 calendarStore.$subscribe((mutation, state) => {
