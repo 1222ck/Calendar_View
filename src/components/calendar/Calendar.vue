@@ -1,5 +1,5 @@
 <template>
-  <div ref="calendarContainer" class="min-h-full min-w-full text-gray-800">
+  <div ref="calendarContainer" class="min-h-full min-w-full text-gray-800" style="padding: 70px 20px 0;">
     <div class="w-full border grid grid-cols-7">
       <Top />
       <div

@@ -1,8 +1,9 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" >
+    <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" style="background: #66bb6a;">
       <div class="container">
-        <a class="navbar-brand" href="/">Calendar Project</a>
+        <a class="navbar-brand text-white" href="/">Calendar Project</a>
+        <RouterLink class="nav-link text-white" to="/member/login"> Login </RouterLink>
         <button
             class="navbar-toggler"
             type="button"
@@ -14,9 +15,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-header-2">
-          <ul class="navbar-nav mx-auto">
+          <ul class="navbar-nav mx-auto text-white">
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/"> Home </RouterLink></li>
+              <RouterLink class="nav-link text-white" to="/"> Home </RouterLink></li>
             <li class="nav-item">
               <RouterLink class="nav-link" to="#">About Us</RouterLink></li>
             <li class="nav-item">
@@ -38,9 +39,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/member/login">
-                Login
-              </a>
+              <RouterLink class="nav-link" to="/member/login"> Login </RouterLink>
             </li>
           </ul>
         </div>
