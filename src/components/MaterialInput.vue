@@ -4,6 +4,10 @@ defineProps({
     type: String,
     default: "",
   },
+  name: {
+    type: String,
+    default: "",
+  },
   type: {
     type: String,
     default: "text",
@@ -79,6 +83,7 @@ function getClasses(size, success, error) {
     ></span>
     <input
       :id="id"
+      :name="name"
       :type="type"
       class="form-control"
       :class="[getClasses(size, success, error), inputClass]"
