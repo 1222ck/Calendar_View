@@ -5,14 +5,13 @@
       <div
         v-for="day in daysOfTheWeek"
         class="text-center text-sm md:text-base lg:text-lg font-medium border"
+        v-bind:key="day"
       >
         {{ day.substring(0, 3) }}
       </div>
 
       <div
         v-if="firstDayOfCurrentMonth > 0"
-        v-for="day in firstDayOfCurrentMonth"
-        :key="day"
         class="h-16 md:h-36 w-full border opacity-50"
       ></div>
 
@@ -99,7 +98,7 @@
       <div
         v-if="lastEmptyCells > 0"
         v-for="day in lastEmptyCells"
-        :key="day"
+        v-bind:key="day"
         class="h-16 md:h-36 w-full border opacity-50"
       ></div>
 
