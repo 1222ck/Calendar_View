@@ -19,20 +19,22 @@
                 <input type="checkbox" id="all-day" v-model="event.allDay" />
             </div>
             <div class="form-group">
-                <label for="location">장소:</label>
-                <input type="text" id="location" v-model="event.location" />
+                <label for="place">장소:</label>
+                <input type="text" id="place" v-model="event.place" />
             </div>
             <div class="form-group">
                 <label for="color">색상:</label>
                 <input type="color" id="color" v-model="event.color" />
             </div>
+            <input type="hidden" id="grpId" v-model="event.grpId" />
+            <input type="hidden" id="regUserId" v-model="event.regUserId" />
             <button type="submit">저장</button>
         </form>
     </div>
 </template>
 
 <script>
-// import {insertDiary} from "@/api/calendar";
+import {insertDiary} from "@/api/calendar/diaryRegister";
 
 export default {
     data() {
@@ -42,8 +44,10 @@ export default {
                 startTime: '',
                 endTime: '',
                 allDay: false,
-                location: '',
+                place: '',
                 color: '#000000',
+                grpId: 1,
+                regUserId: 'kchoi',
             },
         };
     },
@@ -55,8 +59,10 @@ export default {
                 startTime: this.event.startTime,
                 endTime: this.event.endTime,
                 allDay: this.event.allDay,
-                location: this.event.location,
+                place: this.event.place,
                 color: this.event.color,
+                grpId: this.event.grpId,
+                regUserId: this.event.regUserId,
             };
             const { data } = await insertDiary(paramData);
 
@@ -70,8 +76,10 @@ export default {
             this.event.startTime = '';
             this.event.endTime = '';
             this.event.allDay = false;
-            this.event.location = '';
+            this.event.place = '';
             this.event.color = '#000000';
+            this.event.grpId = 1;
+            this.event.regUserId = 'kchoi';
         },
     },
 };
