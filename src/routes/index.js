@@ -20,6 +20,12 @@ const routes = [
         // 1.
         component: () => import('@/components/member/Join.vue'),
     },
+    {
+        path: '/calendar/calendarForm',
+        name: 'Form',
+        // 1.
+        component: () => import('@/components/calendar/CalendarForm.vue'),
+    },
 ];
 
 const router = createRouter({
