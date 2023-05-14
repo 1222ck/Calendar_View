@@ -7,16 +7,16 @@
                 <input type="text" id="title" v-model="event.title" required />
             </div>
             <div class="form-group">
-                <label for="start-time">시작 시간:</label>
-                <input type="time" id="start-time" v-model="event.startTime" required />
+                <label for="sDate">시작 시간:</label>
+                <input type="time" id="sDate" v-model="event.sDate" required />
             </div>
             <div class="form-group">
                 <label for="end-time">종료 시간:</label>
-                <input type="time" id="end-time" v-model="event.endTime" required />
+                <input type="time" id="eDate" v-model="event.eDate" required />
             </div>
             <div class="form-group">
-                <label for="all-day">하루 종일:</label>
-                <input type="checkbox" id="all-day" v-model="event.allDay" />
+                <label for="allDayYn">하루 종일:</label>
+                <input type="checkbox" id="allDayYn" v-model="event.allDayYn" />
             </div>
             <div class="form-group">
                 <label for="place">장소:</label>
@@ -41,9 +41,9 @@ export default {
         return {
             event: {
                 title: '',
-                startTime: '',
-                endTime: '',
-                allDay: false,
+                sDate: '',
+                eDare: '',
+                allDayYn: false,
                 place: '',
                 color: '#000000',
                 grpId: 1,
@@ -56,9 +56,9 @@ export default {
             // API 요청시 전달할 userData 객체
             const paramData = {
                 title: this.event.title,
-                startTime: this.event.startTime,
-                endTime: this.event.endTime,
-                allDay: this.event.allDay,
+                sDate: this.event.sDate,
+                eDate: this.event.eDate,
+                allDayYn: this.event.allDayYn,
                 place: this.event.place,
                 color: this.event.color,
                 grpId: this.event.grpId,
@@ -73,9 +73,9 @@ export default {
         },
         initForm() {
             this.event.title = '';
-            this.event.startTime = '';
-            this.event.endTime = '';
-            this.event.allDay = false;
+            this.event.sDate = '';
+            this.event.eDate = '';
+            this.event.allDayYn = false;
             this.event.place = '';
             this.event.color = '#000000';
             this.event.grpId = 1;
