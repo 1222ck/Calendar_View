@@ -89,8 +89,13 @@ export default {
       });
     },
     async submitForm() {
-      if (!this.checkId) {
+      if (!parseInt(this.checkId)) {
         alert("이메일 중복체크를 해주세요.");
+        return false;
+      }
+
+      if (this.password != this.confirm_password) {
+        alert("비밀번호를 확인해주세요.");
         return false;
       }
 
@@ -100,8 +105,15 @@ export default {
         password: this.password,
         email: this.email,
       };
-      const data  = await registerUser(userData);
-      console.log(data);
+      const response  = await registerUser(userData);
+      if (response.data.statusCode != '200') {
+        alert(response.data.statusMessage);
+        return false;
+      }
+
+      location.href = '/member/complete?email=' + response.data.email;
+
+      console.log(response);
 
       // this.logMessage = `${data.username} 님이 가입되었습니다.`;
 
