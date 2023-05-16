@@ -2,8 +2,8 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-absolute shadow-none" style="background: #66bb6a;">
       <div class="container">
-<!--        <a class="navbar-brand text-white" href="/">Calendar Project</a>-->
-<!--        <RouterLink class="nav-link text-white" to="/member/login"> Login </RouterLink>-->
+        <a class="navbar-brand text-white" href="/">Calendar Project</a>
+        <RouterLink class="nav-link text-white" to="/member/login"> Login </RouterLink>
         <button
             class="navbar-toggler"
             type="button"

@@ -1,10 +1,3 @@
-<script setup>
-//Vue Material Kit 2 components
-import MaterialInput from "@/components/MaterialInput.vue";
-import MaterialTextArea from "@/components/MaterialTextArea.vue";
-import MaterialButton from "@/components/MaterialButton.vue";
-import MaterialSwitch from "@/components/MaterialSwitch.vue";
-</script>
 <template>
   <section class="py-9">
     <div class="container py-4">
@@ -12,20 +5,18 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
         <div class="col-lg-6 col-md-8 col-6 mx-auto">
           <div class="card">
             <div class="card-header">
-              <h4 class="font-weight-bolder text-center mt-2 mb-0">
-                Sign Up
-              </h4>
+              <h4 class="font-weight-bolder text-center mt-2 mb-0">회원가입</h4>
             </div>
             <div class="card-body">
               <form role="form" class="text-start" method="post" v-on:submit.prevent @submit.prevent="submitForm">
                 <div style="position: relative;">
-                  <div class="input-group input-group-outline mb-3" style="width:80%; float:left;">
+                  <div class="input-group input-group-outline mb-3" style="width:75%; float:left;">
                     <!-- v-model: data 속성과 연결 -->
                     <input type="text" id="email" class="form-control form-control-md" placeholder="Email" v-model="email"/>
+                    <input type="hidden" id="checkId" name="checkId" v-model="checkId">
                   </div>
-                  <MaterialButton variant="gradient" color="success" class="w-auto my-3" style="float: right;">
-                    Check
-                  </MaterialButton>
+
+                  <button type="button" class="btn bg-gradient-success btn-md w-auto" style="float: right;" v-on:click="checkEmail"> 이메일 중복체크 </button>
                 </div>
                 <div class="input-group input-group-outline mb-3">
                   <!-- v-model: data 속성과 연결 -->
@@ -41,13 +32,7 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
                 </div>
 
                 <div class="text-center">
-                  <MaterialButton
-                      class="my-4 mb-2"
-                      variant="gradient"
-                      color="success"
-                      fullWidth
-                      type="submit"
-                  >Sign Up</MaterialButton>
+                  <button class="btn bg-gradient-success btn-md w-100 false my-4 mb-2" type="submit">회원가입</button>
                 </div>
               </form>
             </div>
@@ -59,7 +44,8 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
 </template>
 
 <script>
-import { registerUser } from '@/api/member/index';
+import {checkEmail, registerUser} from '@/api/member/index';
+import axios from "axios";
 
 export default {
   data() {
@@ -69,21 +55,55 @@ export default {
       password: '',
       confirm_password: '',
       email: '',
+      checkId: '0',
       // log
       logMessage: '',
     };
   },
   methods: {
+    checkEmail() {
+      this.checkId = '0';
+
+      if (this.email == '') {
+        alert("이메일을 입력해주세요");
+        //this.$refs.mail.focus();
+        return false;
+      }
+
+      axios.get('/api/member/check-email', {
+        params: {
+          email: this.email
+        }
+      }).then((response) => {
+          console.log(response);
+          if (response.data.statusCode == '200') {
+            this.checkId = '1';
+            alert("사용가능한 이메일입니다.");
+          } else {
+            alert("사용 불가능한 이메일입니다.");
+          }
+      }).catch(function (error) {
+          console.log(error);
+          this.checkId = '0';
+          alert("서버 오류!!");
+      });
+    },
     async submitForm() {
+      if (!this.checkId) {
+        alert("이메일 중복체크를 해주세요.");
+        return false;
+      }
+
       // API 요청시 전달할 userData 객체
       const userData = {
         name: this.username,
         password: this.password,
         email: this.email,
       };
-      const { data } = await registerUser(userData);
+      const data  = await registerUser(userData);
+      console.log(data);
 
-      this.logMessage = `${data.username} 님이 가입되었습니다.`;
+      // this.logMessage = `${data.username} 님이 가입되었습니다.`;
 
       // 가입 후 폼 초기화
       this.initForm();
@@ -93,6 +113,7 @@ export default {
       this.password = '';
       this.confirm_password = '';
       this.email = '';
+      this.checkId = '0';
     },
   },
 };
