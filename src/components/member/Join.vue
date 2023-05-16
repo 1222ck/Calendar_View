@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import {checkEmail, registerUser} from '@/api/member/index';
+import {registerUser} from '@/api/member/index';
 import axios from "axios";
 
 export default {
@@ -111,7 +111,7 @@ export default {
         return false;
       }
 
-      location.href = '/member/complete?email=' + response.data.email;
+      location.href = '/member/complete/' + response.data.email;
 
       console.log(response);
 

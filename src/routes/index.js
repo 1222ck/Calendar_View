@@ -21,6 +21,12 @@ const routes = [
         component: () => import('@/components/member/Join.vue'),
     },
     {
+        path: '/member/complete/:userEmail',
+        name: 'Complete',
+        // 1.
+        component: () => import('@/components/member/Complete.vue'),
+    },
+    {
         path: '/calendar/calendarForm',
         name: 'Form',
         // 1.
