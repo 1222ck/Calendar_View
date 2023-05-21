@@ -28,9 +28,15 @@ const routes = [
     },
     {
         path: '/calendar/calendarForm',
-        name: 'Form',
+        name: 'calendarForm',
         // 1.
         component: () => import('@/components/calendar/CalendarForm.vue'),
+    },
+    {
+        path: '/calendar/groupForm',
+        name: 'groupForm',
+        // 1.
+        component: () => import('@/components/calendar/group/GroupForm.vue'),
     },
 ];
 
