@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function createGrp(paramData) {
     // 요청할 URL
-    const url = '/api/diary/groupCreate';
+    const url = '/api/diaryGrp/groupCreate';
     return axios.post(url, paramData);
 }
 

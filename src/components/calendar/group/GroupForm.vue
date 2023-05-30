@@ -20,7 +20,7 @@ export default {
         return {
             event: {
                 grpNm: '',
-
+                leaderId: '',
             },
         };
     },
@@ -29,6 +29,7 @@ export default {
             // API 요청시 전달할 userData 객체
             const paramData = {
                 grpNm: this.event.grpNm,
+                leaderId: this.event.leaderId,
 
             };
             const { data } = await createGrp(paramData);
@@ -40,6 +41,7 @@ export default {
         },
         initForm() {
             this.event.grpNm = '';
+            this.event.leaderId = '';
 
         },
     },
