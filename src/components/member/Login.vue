@@ -36,35 +36,19 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start">
-                <MaterialInput
-                    id="email"
-                    class="input-group-outline my-3"
-                    :label="{ text: 'Email', class: 'form-label' }"
-                    type="email"
-                />
-                <MaterialInput
-                    id="password"
-                    class="input-group-outline mb-3"
-                    :label="{ text: 'Password', class: 'form-label' }"
-                    type="password"
-                />
-                <MaterialSwitch
-                    class="d-flex align-items-center mb-3"
-                    id="rememberMe"
-                    labelClass="mb-0 ms-3"
-                    checked
-                >Remember me</MaterialSwitch
-                >
-
+              <form role="form" class="text-start" method="post">
+                <div style="position: relative;">
+                  <div class="input-group input-group-outline mb-3">
+                    <!-- v-model: data 속성과 연결 -->
+                    <input type="text" id="email" class="form-control form-control-md" placeholder="Email" v-model="email"/>
+                  </div>
+                </div>
+                <div class="input-group input-group-outline mb-3">
+                  <!-- v-model: data 속성과 연결 -->
+                  <input type="password" id="password" class="form-control form-control-md" placeholder="Password" v-model="password"/>
+                </div>
                 <div class="text-center">
-                  <MaterialButton
-                      class="my-4 mb-2"
-                      variant="gradient"
-                      color="success"
-                      fullWidth
-                  >Sign in</MaterialButton
-                  >
+                  <button class="btn bg-gradient-success btn-md w-100 false my-4 mb-2" @click="loginSubmit">로그인</button>
                 </div>
                 <p class="mt-4 text-sm text-center">
                   Don't have an account?
@@ -78,3 +62,47 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
     </div>
   </section>
 </template>
+
+<script>
+
+import {loginUser} from '@/api/member/index';
+import axios from "axios";
+export default {
+  data() {
+    return {
+      email: null,
+      password: null
+    };
+  },
+  methods: {
+    loginSubmit() {
+      let saveData = {};
+      saveData.email = this.email;
+      saveData.password = this.password;
+
+      try {
+        const response  = loginUser(saveData);
+        console.log(response);
+        if (response.data.statusCode != '200') {
+          alert(response.data.statusMessage);
+          return false;
+        }
+
+        /*this.$axios
+            .post(HOST + "/signin", JSON.stringify(saveData), {
+              headers: {
+                "Content-Type": `application/json`,
+              },
+            })
+            .then((res) => {
+              if (res.status === 200) {
+                // 로그인 성공시 처리해줘야할 부분
+              }
+            });*/
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+};
+</script>

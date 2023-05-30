@@ -6,5 +6,11 @@ function registerUser(userData) {
     return axios.post(url, userData);
 }
 
+function loginUser(userData) {
+    // 요청할 URL
+    const url = '/api/member/join';
+    return axios.post(url, userData);
+}
+
 // 함수 export
-export { registerUser };
+export { registerUser, loginUser };
