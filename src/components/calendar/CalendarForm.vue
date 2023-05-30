@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1>일정 추가</h1>
-        <form @submit.prevent="saveEvent">
+        <form @submit.prevent="saveEvent" style="margin-top: 100px">
             <div class="form-group">
                 <label for="title">제목:</label>
                 <input type="text" id="title" v-model="event.title" required />

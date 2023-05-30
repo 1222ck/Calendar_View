@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1>그룹 추가</h1>
-        <form @submit.prevent="grpCreateEvent">
+        <form @submit.prevent="grpCreateEvent" style="margin-top: 100px">
             <div class="form-group">
                 <label for="grpNm">그룹 이름:</label>
                 <input type="text" id="grpNm" v-model="event.grpNm" required />
