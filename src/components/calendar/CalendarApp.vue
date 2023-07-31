@@ -26,6 +26,7 @@
             'bg-slate-200 text-gray-600 font-medium': isToday(day),
             'hover:bg-gray-100 hover:text-gray-700': !isToday(day),
           }"
+          @click="test"
         >
           {{ day }}
 
@@ -488,6 +489,10 @@ const closeModal = () => {
   modalShow.value = false;
   modalDay.value = 0;
 };
+
+const test = () => {
+  console.log("hi");
+}
 
 /************************************************************************
  *  LIFECYCLE HOOKS
