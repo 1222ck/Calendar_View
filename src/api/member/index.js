@@ -8,7 +8,7 @@ function registerUser(userData) {
 
 function loginUser(userData) {
     // 요청할 URL
-    const url = '/api/member/join';
+    const url = '/api/member/login';
     return axios.post(url, userData);
 }
 
