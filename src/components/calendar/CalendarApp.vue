@@ -26,7 +26,7 @@
             'bg-slate-200 text-gray-600 font-medium': isToday(day),
             'hover:bg-gray-100 hover:text-gray-700': !isToday(day),
           }"
-          @click="test"
+          @click="openModal"
         >
           {{ day }}
 
