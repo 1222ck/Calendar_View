@@ -42,7 +42,7 @@ export default {
             event: {
                 title: '',
                 sDate: '',
-                eDare: '',
+                eDate: '',
                 allDayYn: false,
                 place: '',
                 color: '#000000',
