@@ -26,7 +26,7 @@
             'bg-slate-200 text-gray-600 font-medium': isToday(day),
             'hover:bg-gray-100 hover:text-gray-700': !isToday(day),
           }"
-          @click="openModal"
+          @click="openAddEvent(day)"
         >
           {{ day }}
 
@@ -156,6 +156,13 @@
     />
   </transition>
 
+  <transition name="addEventModal">
+    <addEventModal
+      v-if="addEventModalShow"
+      @close-modal="closeAddEventModal"
+      />
+  </transition>
+
   <!-- popover component  -->
   <div
     ref="popoverRef"
@@ -175,6 +182,7 @@
 import { ref, onMounted, onUpdated } from "vue";
 import Top from "@/components/calendar/Top.vue";
 import Modal from "@/components/calendar/EventsModal.vue";
+import addEventModal from "/Users/bummy/study/Calender/Calendar_View/src/components/calendar/CalendarForm.vue";
 import { useCalendarStore } from "../../stores/calendar";
 import { usePopover } from "../../composables/popover";
 
@@ -346,6 +354,7 @@ const modalShow = ref(false);
 const modalDay = ref(0);
 const popoverRef = ref(null);
 const modalEvents = ref([]);
+const addEventModalShow = ref(false);
 
 // popover composable
 const { popoverShow, todaysEvent, togglePopover } = usePopover(popoverRef);
@@ -490,8 +499,20 @@ const closeModal = () => {
   modalDay.value = 0;
 };
 
-const test = () => {
-  console.log("hi");
+const openAddEvent = (day) => {
+  let month = calendarStore.getMonth + 1 ;
+  let date = day;
+  //
+  // popoverShow.value = false;
+  addEventModalShow.value = true;
+
+
+  console.log(month);
+  console.log(date);
+}
+
+const closeAddEventModal = () => {
+  addEventModalShow.value = false;
 }
 
 /************************************************************************
