@@ -48,7 +48,7 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
                   <input type="password" id="password" class="form-control form-control-md" placeholder="Password" v-model="password"/>
                 </div>
                 <div class="text-center">
-                  <button class="btn bg-gradient-success btn-md w-100 false my-4 mb-2" @click="loginSubmit">로그인</button>
+                  <button type="button" class="btn bg-gradient-success btn-md w-100 false my-4 mb-2" @click="loginSubmit">로그인</button>
                 </div>
                 <p class="mt-4 text-sm text-center">
                   Don't have an account?
@@ -65,7 +65,7 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
 
 <script>
 
-import {loginUser} from '@/api/member/index';
+import {loginUser, registerUser} from '@/api/member/index';
 import axios from "axios";
 export default {
   data() {
@@ -75,21 +75,23 @@ export default {
     };
   },
   methods: {
-    loginSubmit() {
+    async loginSubmit() {
       let saveData = {};
       saveData.email = this.email;
       saveData.password = this.password;
 
       try {
-        const response  = loginUser(saveData);
+        const response = await loginUser(saveData);
         console.log(response);
-        if (response.data.statusCode != '200') {
+        console.log(response.status);
+        console.log(response.data);
+        /*if (response.data.statusCode != '200') {
           alert(response.data.statusMessage);
           return false;
-        }
+        }*/
 
         /*this.$axios
-            .post(HOST + "/signin", JSON.stringify(saveData), {
+            .post("http://localhost:8080/api/member/login", JSON.stringify(saveData), {
               headers: {
                 "Content-Type": `application/json`,
               },
@@ -97,11 +99,19 @@ export default {
             .then((res) => {
               if (res.status === 200) {
                 // 로그인 성공시 처리해줘야할 부분
+                console.log(res);
               }
             });*/
       } catch (error) {
         console.error(error);
       }
+    },
+    initForm() {
+      this.username = '';
+      this.password = '';
+      this.confirm_password = '';
+      this.email = '';
+      this.checkId = '0';
     },
   },
 };
