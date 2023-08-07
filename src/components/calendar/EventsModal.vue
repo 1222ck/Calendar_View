@@ -111,12 +111,10 @@
         <slot name="footer">
           <div class="flex space-x-1 items-center">
             <div>
-              <h3 class="text-sm md:text-base font-medium">close</h3>
+              <h3 class="text-sm md:text-base font-medium font-semibold hover:rotate-90 transition-all duration-700 cursor-pointer"
+                  @click="$emit('closeModal')">close</h3>
             </div>
-            <div
-              class="font-semibold hover:rotate-90 transition-all duration-700 cursor-pointer"
-              @click="$emit('closeModal')"
-            >
+            <div class="font-semibold hover:rotate-90 transition-all duration-700 cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -140,7 +138,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed, defineEmits, defineProps } from "vue";
 
 /**************************************
  * PROPS
