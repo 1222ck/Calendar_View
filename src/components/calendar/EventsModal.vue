@@ -59,10 +59,21 @@
                 </svg>
               </div>
               <div>
-                <h5 class="text-xs md:text-sm text-left">
-                  {{ events.length + " Total Events" }}
-                </h5>
+                <h4 class="text-xl md:text-xl font-medium">
+                  <b>일정 만들기</b>
+                </h4>
               </div>
+            </div>
+
+            <div>
+                <h5 class="text-left text-s md:text-base pl-2 uppercase">제목 :
+                  <input placeholder="제목과 이름은 여기"/>
+                </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">날짜 :
+              </h5>
             </div>
 
             <div class="w-full mt-5">
