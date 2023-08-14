@@ -40,14 +40,22 @@ export default {
     data() {
         return {
             event: {
-                title: '',
-                sDate: '',
-                eDate: '',
-                allDayYn: false,
-                place: '',
-                color: '#000000',
-                grpId: 1,
-                regUserId: 'kchoi',
+                diaryId: 1,
+                title:"title1",
+                contents:"contents1",
+                sDateYear:"sDateYear1",
+                sDateMonth:"sDateMonth1",
+                sDateDay:"sDateDay1",
+                sDateTime:"sDateTime1",
+                eDateYear:"eDateYear1",
+                eDateMonth:"eDateMonth1",
+                eDateDay:"eDateDay1",
+                eDateTime:"eDateTime1",
+                allDayYn:"N",
+                color:"#000000",
+                place:"place1",
+                regUserId:"userId1",
+                regDate: "11111111",
             },
         };
     },
@@ -55,14 +63,22 @@ export default {
         async saveEvent() {
             // API 요청시 전달할 userData 객체
             const paramData = {
-                title: this.event.title,
-                sDate: this.event.sDate,
-                eDate: this.event.eDate,
-                allDayYn: this.event.allDayYn,
-                place: this.event.place,
-                color: this.event.color,
-                grpId: this.event.grpId,
-                regUserId: this.event.regUserId,
+                diaryId: this.event.diaryId ?? 1,
+                title:this.event.title ?? "",
+                contents:this.event.contents ?? "",
+                sDateYear:this.event.sDateYear ?? "",
+                sDateMonth:this.event.sDateMonth ?? "",
+                sDateDay:this.event.sDateDay ?? "",
+                sDateTime:this.event.sDateTime ?? "",
+                eDateYear:this.event.eDateYear ?? "",
+                eDateMonth:this.event.eDateMonth ?? "",
+                eDateDay:this.event.eDateDay ?? "",
+                eDateTime:this.event.eDateTime ?? "",
+                allDayYn:this.event.allDayYn ?? "N",
+                color:this.event.color ?? "#000000",
+                place:this.event.place ?? "",
+                regUserId:this.event.regUserId ?? "",
+                regDate: this.event.regDate ?? "",
             };
             const { data } = await insertDiary(paramData);
 
@@ -72,14 +88,22 @@ export default {
             this.initForm();
         },
         initForm() {
-            this.event.title = '';
-            this.event.sDate = '';
-            this.event.eDate = '';
-            this.event.allDayYn = false;
-            this.event.place = '';
-            this.event.color = '#000000';
-            this.event.grpId = 1;
-            this.event.regUserId = 'kchoi';
+            this.event.diaryId = 0;
+            this.event.title = "";
+            this.event.contents = "";
+            this.event.sDateYear = "";
+            this.event.sDateMonth = "";
+            this.event.sDateDay = "";
+            this.event.sDateTime = "";
+            this.event.eDateYear = "";
+            this.event.eDateMonth = "";
+            this.event.eDateDay = "";
+            this.event.eDateTime = "";
+            this.event.allDayYn = "N";
+            this.event.color = "#000000";
+            this.event.place = "";
+            this.event.regUserId = "";
+            this.event.regDate = "";
         },
     },
 };

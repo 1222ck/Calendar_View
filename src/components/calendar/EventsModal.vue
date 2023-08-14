@@ -59,10 +59,49 @@
                 </svg>
               </div>
               <div>
-                <h5 class="text-xs md:text-sm text-left">
-                  {{ events.length + " Total Events" }}
-                </h5>
+                <h4 class="text-xl md:text-xl font-medium">
+                  <b>일정 만들기</b>
+                </h4>
               </div>
+            </div>
+
+            <div>
+                <h5 class="text-left text-s md:text-base pl-2 uppercase">제목 :
+                  <input placeholder="제목과 이름은 여기"/>
+                </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">날짜 :
+                <Datepicker
+                    v-model="start_date"
+                    auto-apply
+                    @update:modelValue="handleStartDate"
+                    id="start_date"></Datepicker>
+                ~
+                <Datepicker
+                    v-model="end_date"
+                    auto-apply
+                    @update:modelValue="handleEndDate"
+                    id="end_date"></Datepicker>
+              </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">하루 종일 :
+                <input type="checkbox">
+              </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">장소 :
+                <input placeholder="장소는 여기"/>
+              </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">내용 : </h5>
+              <textarea style="width : 500px; height : 200px;" placeholder="다이어리 내용"></textarea>
             </div>
 
             <div class="w-full mt-5">
@@ -139,6 +178,9 @@
 
 <script setup>
 import { onMounted, ref, computed, defineEmits, defineProps } from "vue";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+import { useCalendarStore } from "../../stores/calendar";
 
 /**************************************
  * PROPS
@@ -173,7 +215,26 @@ const eventClick = (evt, event) => {
 };
 
 // Component state
+const start_date = ref();
+const end_date = ref();
 const modalDate = ref(new Date());
+const calendarStore = useCalendarStore();
+const handleStartDate = (modelData) => {
+  start_date.value = modelData;
+
+  calendarStore.setMonth(start_date.value.getMonth());
+  calendarStore.setYear(start_date.value.getFullYear());
+
+  // do something else with the data
+};
+
+const handleEndDate = (modelData) => {
+  end_date.value = modelData;
+
+  calendarStore.setMonth(end_date.value.getMonth());
+  calendarStore.setYear(end_date.value.getFullYear());
+}
+
 const modalWeekDay = computed(() =>
   new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(modalDate.value)
 );
