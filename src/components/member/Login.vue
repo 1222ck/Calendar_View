@@ -36,15 +36,13 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
               </div>
             </div>
             <div class="card-body">
-              <form role="form" class="text-start" method="post">
+              <!--form role="form" class="text-start" method="post">
                 <div style="position: relative;">
                   <div class="input-group input-group-outline mb-3">
-                    <!-- v-model: data 속성과 연결 -->
                     <input type="text" id="email" class="form-control form-control-md" placeholder="Email" v-model="email"/>
                   </div>
                 </div>
                 <div class="input-group input-group-outline mb-3">
-                  <!-- v-model: data 속성과 연결 -->
                   <input type="password" id="password" class="form-control form-control-md" placeholder="Password" v-model="password"/>
                 </div>
                 <div class="text-center">
@@ -54,6 +52,11 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
                   Don't have an account?
                   <a href="/member/join" class="text-success text-gradient font-weight-bold">Sign up</a>
                 </p>
+              </form-->
+              <form @submit.prevent="login">
+                <input type="text" v-model="email" placeholder="Email">
+                <input type="password" v-model="password" placeholder="Password">
+                <button type="submit">Login</button>
               </form>
             </div>
           </div>
@@ -63,15 +66,15 @@ import MaterialSwitch from "@/components/MaterialSwitch.vue";
   </section>
 </template>
 
-<script>
 
+<script>
 import {loginUser, registerUser} from '@/api/member/index';
 import axios from "axios";
 export default {
   data() {
     return {
-      email: null,
-      password: null
+      email: '',
+      password: ''
     };
   },
   methods: {
@@ -113,6 +116,22 @@ export default {
       this.email = '';
       this.checkId = '0';
     },
+    async login() {
+      try {
+        const response = await loginUser({
+          email: this.email,
+          password: this.password
+        });
+
+        console.log(response);
+
+        const token = response.data.accessToken;
+        localStorage.setItem('token', token);
+
+      } catch (error) {
+        console.error('로그인 실패', error);
+      }
+    }
   },
 };
 </script>
