@@ -73,7 +73,27 @@
 
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">날짜 :
+                <input placeholder="시작 날짜"/>
+                ~
+                <input placeholder="종료 날짜"/>
               </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">하루 종일 :
+                <input type="checkbox">
+              </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">장소 :
+                <input placeholder="장소는 여기"/>
+              </h5>
+            </div>
+
+            <div>
+              <h5 class="text-left text-s md:text-base pl-2 uppercase">내용 : </h5>
+              <textarea style="width : 500px; height : 200px;" placeholder="다이어리 내용"></textarea>
             </div>
 
             <div class="w-full mt-5">
