@@ -73,9 +73,17 @@
 
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">날짜 :
-                <input placeholder="시작 날짜"/>
+                <Datepicker
+                    v-model="start_date"
+                    auto-apply
+                    @update:modelValue="handleStartDate"
+                    id="start_date"></Datepicker>
                 ~
-                <input placeholder="종료 날짜"/>
+                <Datepicker
+                    v-model="end_date"
+                    auto-apply
+                    @update:modelValue="handleEndDate"
+                    id="end_date"></Datepicker>
               </h5>
             </div>
 
@@ -170,6 +178,9 @@
 
 <script setup>
 import { onMounted, ref, computed, defineEmits, defineProps } from "vue";
+import Datepicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+import { useCalendarStore } from "../../stores/calendar";
 
 /**************************************
  * PROPS
@@ -204,7 +215,26 @@ const eventClick = (evt, event) => {
 };
 
 // Component state
+const start_date = ref();
+const end_date = ref();
 const modalDate = ref(new Date());
+const calendarStore = useCalendarStore();
+const handleStartDate = (modelData) => {
+  start_date.value = modelData;
+
+  calendarStore.setMonth(start_date.value.getMonth());
+  calendarStore.setYear(start_date.value.getFullYear());
+
+  // do something else with the data
+};
+
+const handleEndDate = (modelData) => {
+  end_date.value = modelData;
+
+  calendarStore.setMonth(end_date.value.getMonth());
+  calendarStore.setYear(end_date.value.getFullYear());
+}
+
 const modalWeekDay = computed(() =>
   new Intl.DateTimeFormat("en-US", { weekday: "long" }).format(modalDate.value)
 );
