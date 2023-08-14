@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function insertDiary(paramData) {
     // 요청할 URL
-    const url = '/api/diary/diaryRegister';
+    const url = '/api/calendar/diaryRegister';
     return axios.post(url, paramData);
 }
 
