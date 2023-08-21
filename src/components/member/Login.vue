@@ -125,9 +125,15 @@ export default {
 
         console.log(response);
         if (typeof response.data.accessToken != "undefined" && response.data.accessToken !== "") {
-          const token = response.data.accessToken;
-          localStorage.setItem('token', token);
-          location.href = '/';
+          localStorage.setItem('accessToken', response.data.accessToken);
+          localStorage.setItem('refreshToken', response.data.refreshToken);
+          localStorage.setItem('expiresIn', response.data.expiresIn);
+          //location.href = '/';
+
+          let now = new Date();
+          let expiry = response.data.expiresIn - Number(now.getTime().toString().substr(0, 10));
+          console.log(expiry);
+
         } else {
           alert("로그인 실패");
         }
