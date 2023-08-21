@@ -73,20 +73,23 @@
 
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">날짜 :
+                <div>
                 <Datepicker
                     v-model="start_date"
                     auto-apply
                     @update:modelValue="handleStartDate"
-                    id="start_date"></Datepicker>
-                ~
+                    id="start_date" style="width:200px; float:left"></Datepicker>
+                </div>
+                <div style="float:left">&nbsp;~&nbsp;</div>
+                <div>
                 <Datepicker
                     v-model="end_date"
                     auto-apply
                     @update:modelValue="handleEndDate"
-                    id="end_date"></Datepicker>
+                    id="end_date" style="width:200px; float: left"></Datepicker>
+                </div>
               </h5>
             </div>
-
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">하루 종일 :
                 <input type="checkbox">
@@ -149,6 +152,10 @@
       >
         <slot name="footer">
           <div class="flex space-x-1 items-center">
+            <div>
+              <h3 class="text-sm md:text-base font-medium font-semibold hover:rotate-90 transition-all duration-700 cursor-pointer"
+                  @click="submitModal()">submit</h3>
+            </div>
             <div>
               <h3 class="text-sm md:text-base font-medium font-semibold hover:rotate-90 transition-all duration-700 cursor-pointer"
                   @click="$emit('closeModal')">close</h3>
@@ -269,6 +276,10 @@ const formatTime = (timeStr) => {
   let constructedTime = new Date(rearrangedTimeStr + ":00");
   return constructedTime.toLocaleTimeString();
 };
+
+const submitModal = () => {
+  console.log("submit");
+}
 
 /************************************************************************
  *  LIFECYCLE HOOKS
