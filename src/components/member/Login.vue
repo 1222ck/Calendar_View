@@ -124,10 +124,13 @@ export default {
         });
 
         console.log(response);
-
-        const token = response.data.accessToken;
-        localStorage.setItem('token', token);
-
+        if (typeof response.data.accessToken != "undefined" && response.data.accessToken !== "") {
+          const token = response.data.accessToken;
+          localStorage.setItem('token', token);
+          location.href = '/';
+        } else {
+          alert("로그인 실패");
+        }
       } catch (error) {
         console.error('로그인 실패', error);
       }
