@@ -47,25 +47,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, form, next) => {
-    const token = localStorage.getItem('token');
-    if (to.matched.some(record => record.meta.requireAuth) && !token) {
-        if (!token) {
-            next('/login');
+    if (to.matched.some(record => record.meta.requireAuth)) {
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            next();
         } else {
-            this.$store.dispatch('login', token)
-            .then(() => next())
-                .catch(() => {
-                    localStorage.removeItem('token');
-                    next('/login');
-                });
+            router.push({ name: 'Login' });
         }
-        next('/login');
-        console.log("bbb");
     } else {
-        console.log("aaa");
-        console.log(token);
         next();
-        // next({ path: '/' });
     }
 });
 
