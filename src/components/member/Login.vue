@@ -124,19 +124,20 @@ export default {
         });
 
         console.log(response);
-        if (typeof response.data.accessToken != "undefined" && response.data.accessToken !== "") {
-          localStorage.setItem('accessToken', response.data.accessToken);
-          localStorage.setItem('refreshToken', response.data.refreshToken);
-          localStorage.setItem('expiresIn', response.data.expiresIn);
-          //location.href = '/';
 
-          let now = new Date();
-          let expiry = response.data.expiresIn - Number(now.getTime().toString().substr(0, 10));
-          console.log(expiry);
-
-        } else {
+        if (response.status !== "200") {
           alert("로그인 실패");
+          return false;
         }
+
+        localStorage.setItem('accessToken', response.data.accessToken);
+        localStorage.setItem('refreshToken', response.data.refreshToken);
+        localStorage.setItem('expiresIn', response.data.expiresIn);
+        location.href = '/';
+
+        let now = new Date();
+        let expiry = response.data.expiresIn - Number(now.getTime().toString().substr(0, 10));
+        console.log(expiry);
       } catch (error) {
         console.error('로그인 실패', error);
       }
