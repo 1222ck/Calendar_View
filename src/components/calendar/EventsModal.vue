@@ -67,7 +67,7 @@
 
             <div>
                 <h5 class="text-left text-s md:text-base pl-2 uppercase">제목 :
-                  <input placeholder="제목과 이름은 여기"/>
+                  <input id="title" placeholder="제목과 이름은 여기"/>
                 </h5>
             </div>
 
@@ -92,19 +92,19 @@
             </div>
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">하루 종일 :
-                <input type="checkbox">
+                <input id="allDateYN" type="checkbox" v-model="agreement">
               </h5>
             </div>
 
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">장소 :
-                <input placeholder="장소는 여기"/>
+                <input id="location" placeholder="장소는 여기"/>
               </h5>
             </div>
 
             <div>
               <h5 class="text-left text-s md:text-base pl-2 uppercase">내용 : </h5>
-              <textarea style="width : 500px; height : 200px;" placeholder="다이어리 내용"></textarea>
+              <textarea id="content" style="width : 500px; height : 200px;" placeholder="다이어리 내용"></textarea>
             </div>
 
             <div class="w-full mt-5">
@@ -188,6 +188,7 @@ import { onMounted, ref, computed, defineEmits, defineProps } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { useCalendarStore } from "../../stores/calendar";
+// import axios from "axios";
 
 /**************************************
  * PROPS
@@ -224,6 +225,7 @@ const eventClick = (evt, event) => {
 // Component state
 const start_date = ref();
 const end_date = ref();
+const agreement = ref();
 const modalDate = ref(new Date());
 const calendarStore = useCalendarStore();
 const handleStartDate = (modelData) => {
@@ -278,7 +280,26 @@ const formatTime = (timeStr) => {
 };
 
 const submitModal = () => {
-  console.log("submit");
+  let title = document.querySelector("#title").value;
+  let sDate = start_date.value;
+  let eDate = end_date.value;
+  let AllDate = false
+  let location = document.querySelector("#location").value;
+  let content = document.querySelector("#content").value;
+
+  if(agreement.value == true){
+    AllDate = true;
+  }
+
+  let data = {
+    title : title,
+    sDate : sDate,
+    eDate : eDate,
+    AllDate : AllDate,
+    location : location,
+    content : content
+  };
+
 }
 
 /************************************************************************

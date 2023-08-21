@@ -48,9 +48,8 @@ const router = createRouter({
 
 router.beforeEach((to, form, next) => {
     if (to.matched.some(record => record.meta.requireAuth)) {
-        const token = localStorage.getItem('token');
-
-        if (token) {
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
             next();
         } else {
             router.push({ name: 'Login' });
