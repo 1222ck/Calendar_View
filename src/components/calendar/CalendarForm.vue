@@ -7,12 +7,20 @@
                 <input type="text" id="title" v-model="event.title" required />
             </div>
             <div class="form-group">
+                <label for="sDate">시작 날짜:</label>
+                <input type="text" id="sDate" v-model="event.sDate" required />
+            </div>
+            <div class="form-group">
                 <label for="sDate">시작 시간:</label>
-                <input type="time" id="sDate" v-model="event.sDate" required />
+                <input type="time" id="sDateTime" v-model="event.sDateTime" required />
+            </div>
+            <div class="form-group">
+                <label for="eDate">종료 날짜:</label>
+                <input type="text" id="eDate" v-model="event.eDate" required />
             </div>
             <div class="form-group">
                 <label for="end-time">종료 시간:</label>
-                <input type="time" id="eDate" v-model="event.eDate" required />
+                <input type="time" id="eDateTime" v-model="event.eDateTime" required />
             </div>
             <div class="form-group">
                 <label for="allDayYn">하루 종일:</label>
@@ -66,13 +74,13 @@ export default {
                 diaryId: this.event.diaryId ?? 1,
                 title:this.event.title ?? "",
                 contents:this.event.contents ?? "",
-                sDateYear:this.event.sDateYear ?? "",
-                sDateMonth:this.event.sDateMonth ?? "",
-                sDateDay:this.event.sDateDay ?? "",
+                sDateYear:this.event.sDate.substr(0,4) ?? "",
+                sDateMonth:this.event.sDate.substr(4,2) ?? "",
+                sDateDay:this.event.sDate.substr(6,2) ?? "",
                 sDateTime:this.event.sDateTime ?? "",
-                eDateYear:this.event.eDateYear ?? "",
-                eDateMonth:this.event.eDateMonth ?? "",
-                eDateDay:this.event.eDateDay ?? "",
+                eDateYear:this.event.eDate.substr(0,4) ?? "",
+                eDateMonth:this.event.eDate.substr(4,2) ?? "",
+                eDateDay:this.event.eDate.substr(6,2) ?? "",
                 eDateTime:this.event.eDateTime ?? "",
                 allDayYn:this.event.allDayYn ?? "N",
                 color:this.event.color ?? "#000000",
