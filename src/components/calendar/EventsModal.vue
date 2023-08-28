@@ -188,7 +188,7 @@ import { onMounted, ref, computed, defineEmits, defineProps } from "vue";
 import Datepicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { useCalendarStore } from "../../stores/calendar";
-// import axios from "axios";
+import axios from 'axios';
 
 /**************************************
  * PROPS
@@ -299,6 +299,12 @@ const submitModal = () => {
     location : location,
     content : content
   };
+
+
+  //axios로 ajax post 사용하기
+  axios.post('localhost:8080/api/calendar/diaryRegister', data).then((result) => {
+    console.log(result);
+  })
 
 }
 
